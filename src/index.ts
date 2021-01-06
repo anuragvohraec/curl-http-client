@@ -200,6 +200,7 @@ export class CurlHttpClient{
                   case HttpMethod.GET:
                     {
                       var res = await  fetch(url, {headers: headers});
+                      //@ts-ignore
                       res.body.pipe(reqParam.writableStream!);
                       return new CompositeResponse(JSON.stringify({ok:true}), res.headers,res.status, action);
                     }
@@ -207,6 +208,7 @@ export class CurlHttpClient{
                   case HttpMethod.POST:
                     {
                         var res = await  fetch(url, {method: "POST" ,headers: headers});
+                        //@ts-ignore
                         res.body.pipe(reqParam.writableStream!);
                         return new CompositeResponse(JSON.stringify({ok:true}), res.headers,res.status, action);
                     }
@@ -219,6 +221,7 @@ export class CurlHttpClient{
                 switch(method){
                   case HttpMethod.PUT:
                     {
+                        //@ts-ignore
                         var res = await  fetch(url, {method: "PUT" ,headers: headers, body: reqParam.readableStream});
                         return new CompositeResponse(JSON.stringify({ok:true}), res.headers,res.status, action);
                     }
