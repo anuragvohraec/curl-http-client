@@ -83,6 +83,12 @@ class ValidationEngine{
 export class CurlHttpClient{
   
     constructor(private _domainName:string, private _def_headers: HTTPHeaders){};
+
+    
+    public set def_headers(v : HTTPHeaders) {
+      this._def_headers = v;
+    }
+    
   
     _convertHeadersToStringType(headers?:HTTPHeaders):HeadersInit{
       let result:HTTPHeaders={};
